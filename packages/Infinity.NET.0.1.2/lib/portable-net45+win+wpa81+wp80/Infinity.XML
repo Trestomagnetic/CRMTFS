@@ -1,0 +1,2164 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Infinity</name>
+    </assembly>
+    <members>
+        <member name="T:Infinity.Clients.BlobFormat">
+            <summary>
+            The format to download a blob as.
+            </summary>
+        </member>
+        <member name="F:Infinity.Clients.BlobFormat.Raw">
+            <summary>
+            Download as binary data (a byte stream).
+            </summary>
+        </member>
+        <member name="F:Infinity.Clients.BlobFormat.Zip">
+            <summary>
+            Download as a zip file.
+            </summary>
+        </member>
+        <member name="T:Infinity.Clients.DiffFilters">
+            <summary>
+            Diff filters.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.DiffFilters.TargetRevision">
+            <summary>
+            The revision to diff to.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.DiffFilters.BaseRevision">
+            <summary>
+            The revision to diff from.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.DiffFilters.Count">
+            <summary>
+            The maximum number of diff items to return.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.DiffFilters.Skip">
+            <summary>
+            The number of diff items to return from the query.
+            </summary>
+        </member>
+        <member name="T:Infinity.Clients.GitClient">
+            <summary>
+            Client to access information about Git repositories managed in a
+            TFS Project Collection.
+            </summary>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.GetBlob(System.Guid,Infinity.Models.ObjectId)">
+            <summary>
+            Get the information about a Git blob by its ID.
+            </summary>
+            <param name="repositoryId">The ID of the repository</param>
+            <param name="blobId">The object ID of the blob</param>
+            <returns>The blob</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.DownloadBlob(System.Guid,Infinity.Models.ObjectId,System.IO.Stream)">
+            <summary>
+            Download a blob's contents.
+            </summary>
+            <param name="repositoryId">The ID of the repository</param>
+            <param name="blobId">The object ID of the blob</param>
+            <param name="outputStream">The stream to write the response content to asynchronously</param>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.DownloadBlob(System.Guid,Infinity.Models.ObjectId,Infinity.Clients.BlobFormat,System.IO.Stream)">
+            <summary>
+            Download a blob's contents.
+            </summary>
+            <param name="repositoryId">The ID of the repository</param>
+            <param name="blobId">The object ID of the blob</param>
+            <param name="format">The format to download as</param>
+            <param name="outputStream">The stream to write the response content to asynchronously</param>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.GetBranchStatistics(System.Guid,System.String,Infinity.Clients.Revision)">
+            <summary>
+            Get the statistics about a branch.
+            </summary>
+            <param name="repositoryId">The ID of the repository</param>
+            <param name="branch">The name of the branch to return statistics for</param>
+            <param name="baseRevision">The revision to compare this branch to</param>
+            <returns>The branch statistics</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.GetBranchStatistics(System.Guid)">
+            <summary>
+            Get the statistics about all branches.
+            </summary>
+            <param name="repositoryId">The ID of the repository</param>
+            <returns>The branch statistics</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.GetCommits(System.Guid,Infinity.Clients.CommitFilters)">
+            <summary>
+            Get a list of commits in a Git repository.
+            </summary>
+            <param name="repositoryId">The ID of the repository to query</param>
+            <param name="filters">Optional commit query filters</param>
+            <returns>A list of commits in the Git repository</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.GetCommits(System.Guid,Infinity.Clients.Revision,Infinity.Clients.Revision)">
+            <summary>
+            Get a list of commits leading to a revision, optionally beginning
+            from a prior revision.
+            </summary>
+            <param name="repositoryId">The ID of the repository to query</param>
+            <param name="targetRevision">The revision to query from</param>
+            <param name="baseRevision">The revision to begin querying</param>
+            <returns>A list of commits in the Git repository</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.GetCommit(System.Guid,Infinity.Models.ObjectId,System.Int32)">
+            <summary>
+            Get a commit in a repository.
+            </summary>
+            <param name="repositoryId">The ID of the repository</param>
+            <param name="commitId">The ID of the commit</param>
+            <param name="changeCount">The number of changes to return, or 0 for none.</param>
+            <returns>The commit in the Git repository</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.GetDiff(System.Guid,Infinity.Clients.DiffFilters)">
+            <summary>
+            Get the differences between two commits.
+            </summary>
+            <param name="repositoryId">The repository containing the commits.</param>
+            <param name="filters">The data to difference.</param>
+            <returns>The differences betweeo commits.</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.GetItem(System.Guid,System.String,Infinity.Clients.ItemFilters,System.Boolean)">
+            <summary>
+            Get the item in the repository at the given path.
+            </summary>
+            <param name="repositoryId">The ID of the repository to query</param>
+            <param name="path">Path of the item to query</param>
+            <param name="filters">Filters to provide additional query information</param>
+            <param name="includeMetadata">To include item metadata or not</param>
+            <returns>A list of commits in the Git repository</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.GetItems(System.Guid,System.Collections.Generic.IEnumerable{System.Tuple{System.String,Infinity.Clients.ItemFilters}},System.Boolean)">
+            <summary>
+            Get the items in the repository at the given path.
+            </summary>
+            <param name="repositoryId">The ID of the repository to query</param>
+            <param name="paths">Paths (and filters) of the items to query</param>
+            <param name="includeMetadata">True to include item metadata</param>
+            <returns>A list of commits in the Git repository</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.GetPullRequest(System.Guid,System.Int32)">
+            <summary>
+            Get a pull request in a Git repository.
+            </summary>
+            <param name="repositoryId">The ID of the repository that contains the pull request</param>
+            <param name="id">The ID of the pull request</param>
+            <returns>The pull request</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.GetPullRequests(System.Guid,Infinity.Clients.PullRequestFilters)">
+            <summary>
+            Get a list of pull requests in a Git repository.
+            </summary>
+            <param name="repositoryId">The ID of the repository to query</param>
+            <param name="filters">Optional pull request query filters</param>
+            <returns>A list of pull requests in the Git repository</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.CreatePullRequest(System.Guid,System.String,System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Create a new pull request in the given repository, requesting to
+            merge the given source branch into the given target branch.
+            </summary>
+            <param name="repositoryId">The repository</param>
+            <param name="sourceRefName">Name of the source branch that contains the changes to merge</param>
+            <param name="targetRefName">Name of the target branch that will be the destination of the merge</param>
+            <param name="title">Title of the pull request</param>
+            <param name="description">Description of the pull request</param>
+            <param name="reviewers">Reviewers (optional)</param>
+            <returns>The new pull request</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.UpdatePullRequest(System.Guid,System.Int32,Infinity.Models.PullRequestStatus,System.String)">
+            <summary>
+            Updates the pull request data, abandoning or completing it.
+            </summary>
+            <param name="repositoryId">The repository</param>
+            <param name="pullRequestId">The pull request to update</param>
+            <param name="status">The new status</param>
+            <param name="lastMergeSourceCommitId">The last merge source commit ID (to confirm)</param>
+            <returns>The updated pull request</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.GetPullRequestReviewers(System.Guid,System.Int32)">
+            <summary>
+            Get the reviewers listed for a pull request.
+            </summary>
+            <param name="repositoryId">The repository</param>
+            <param name="pullRequestId">The pull request</param>
+            <returns>The list of reviewers listed for the pull request</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.GetPullRequestReviewer(System.Guid,System.Int32,System.Guid)">
+            <summary>
+            Get the information about a reviewer listed for a pull request.
+            </summary>
+            <param name="repositoryId">The repository</param>
+            <param name="pullRequestId">The pull request</param>
+            <param name="reviewerId">The reviewer</param>
+            <returns>The reviewer for the pull request</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.AddPullRequestReviewer(System.Guid,System.Int32,System.Guid,Infinity.Models.PullRequestVote)">
+            <summary>
+            Adds a reviewer to a pull request.
+            </summary>
+            <param name="repositoryId">The repository</param>
+            <param name="pullRequestId">The pull request</param>
+            <param name="reviewerId">The reviewer</param>
+            <param name="vote">The (optional) vote for the reviewer</param>
+            <returns>The reviewer for the pull request</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.DeletePullRequestReviewer(System.Guid,System.Int32,System.Guid)">
+            <summary>
+            Deletes a reviewer from a pull request
+            </summary>
+            <param name="repositoryId">The repository</param>
+            <param name="pullRequestId">The pull request</param>
+            <param name="reviewerId">The reviewer</param>
+            <returns>The reviewer for the pull request</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.UpdatePullRequestReviewer(System.Guid,System.Int32,System.Guid,Infinity.Models.PullRequestVote)">
+            <summary>
+            Updates the reviewer's vote for a pull request.
+            </summary>
+            <param name="repositoryId">The repository</param>
+            <param name="pullRequestId">The pull request</param>
+            <param name="reviewerId">The reviewer</param>
+            <param name="vote">The vote for the reviewer</param>
+            <returns>The reviewer for the pull request</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.GetPush(System.Guid,System.Int32,System.Boolean)">
+            <summary>
+            Get a push in a Git repository.
+            </summary>
+            <param name="repositoryId">The ID of the repository to query</param>
+            <param name="id">The ID of the push</param>
+            <param name="includeRefUpdates">Whether to include information about references that were updated</param>
+            <returns>A list of pushes in the Git repository</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.GetPushes(System.Guid,Infinity.Clients.PushFilters)">
+            <summary>
+            Get a list of pushes in a Git repository.
+            </summary>
+            <param name="repositoryId">The ID of the repository to query</param>
+            <param name="filters">Optional push filters</param>
+            <returns>A list of pushes in the Git repository</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.GetPushCommits(System.Guid,System.Int32)">
+            <summary>
+            Get a list of commits included in the push.
+            </summary>
+            <param name="repositoryId">The ID of the repository to query</param>
+            <param name="pushId">The ID of the push to query</param>
+            <returns>A list of commits in the push</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.GetReferences(System.Guid,System.String)">
+            <summary>
+            Get the references (branches, tags, notes) in the given repository.
+            </summary>
+            <param name="repositoryId">The ID of the Git repository</param>
+            <param name="filter">The string prefix to match, excepting the <code>refs/</code> prefix.  For example, <code>heads/</code> will return branches.</param>
+            <returns>The list of references.</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.GetRepositories(System.Nullable{System.Guid})">
+            <summary>
+            Get a list of all Git repositories managed in a TFS Team Project.
+            </summary>
+            <param name="projectId">The ID of the Team Project to query</param>
+            <returns>A list of repositories in the Project Collection</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.GetRepository(System.Guid)">
+            <summary>
+            Get the information about a Git repository by its ID.
+            </summary>
+            <param name="id">The ID of the Git repository</param>
+            <returns>The Git repository</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.GetRepository(System.Guid,System.String)">
+            <summary>
+            Get the information about a Git repository by its name.
+            </summary>
+            <param name="projectId">The ID of the Team Project that contains this repository</param>
+            <param name="name">The name of the Git repository</param>
+            <returns>The Git repository</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.CreateRepository(System.Guid,System.String)">
+            <summary>
+            Create a new Git repository inside a Team Project.
+            </summary>
+            <param name="projectId">The ID of the Team Project that will contain this repository</param>
+            <param name="name">The name of the repository to create</param>
+            <returns>The Git repository created</returns>
+            <exception cref="T:Infinity.Exceptions.TfsConflictException">If a repository by the same name already exists</exception>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.RenameRepository(System.Guid,System.String)">
+            <summary>
+            Rename a Git repository.
+            </summary>
+            <param name="repositoryId">The ID of the repository to rename</param>
+            <param name="newName">The new name of the repository</param>
+            <returns>The Git repository after update</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.DeleteRepository(System.Guid)">
+            <summary>
+            Delete the given Git repository.
+            </summary>
+            <param name="repositoryId">The ID of the repository to delete</param>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.GetTree(System.Guid,Infinity.Models.ObjectId)">
+            <summary>
+            Get the information about a Git tree by its ID.
+            </summary>
+            <param name="repositoryId">The ID of the repository</param>
+            <param name="treeId">The object ID of the tree</param>
+            <returns>The tree</returns>
+        </member>
+        <member name="M:Infinity.Clients.GitClient.DownloadTree(System.Guid,Infinity.Models.ObjectId,System.IO.Stream)">
+            <summary>
+            Download the contents of a tree as a zip file.
+            </summary>
+            <param name="repositoryId">The ID of the repository</param>
+            <param name="treeId">The object ID of the tree</param>
+            <param name="outputStream">The stream to write to asynchronously</param>
+        </member>
+        <member name="T:Infinity.Clients.ItemFilters">
+            <summary>
+            Item query filters
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.ItemFilters.RecursionLevel">
+            <summary>
+            The recursion level for queries on folders.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.ItemFilters.Revision">
+            <summary>
+            The revision of the item to query.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.ItemFilters.RevisionOptions">
+            <summary>
+            The query to perform using the Revision.
+            </summary>
+        </member>
+        <member name="T:Infinity.Clients.ProjectClient">
+            <summary>
+            Client to access information about Team Projects inside a
+            TFS Project Collection.
+            </summary>
+        </member>
+        <member name="M:Infinity.Clients.ProjectClient.GetProjects(Infinity.Models.ProjectState,System.Int32,System.Int32)">
+            <summary>
+            Get a list of all Team Projects within the current Project Collection.
+            </summary>
+            <param name="projectState">The state of the Team Project(s) to query</param>
+            <param name="count">The maximum number of Team Projects to return</param>
+            <param name="skip">The number of Team Projects to skip</param>
+            <returns>The list of Team Projects that match the criteria</returns>
+        </member>
+        <member name="M:Infinity.Clients.ProjectClient.GetProject(System.Guid,System.Boolean)">
+            <summary>
+            Get the Team Project by ID.
+            
+            Optionally queries the "capabilities" for the team project,
+            including source control type (TFVC or Git) and process
+            template.
+            </summary>
+            <param name="id">The ID of the Team Project.</param>
+            <param name="includeCapabilities">true to include project capabilities</param>
+            <returns>The Team Project, or <code>null</code> if none matched</returns>
+        </member>
+        <member name="M:Infinity.Clients.ProjectClient.GetProject(System.String,System.Boolean)">
+            <summary>
+            Get the Team Project by name.
+            
+            Optionally queries the "capabilities" for the team project,
+            including source control type (TFVC or Git) and process
+            template.
+            </summary>
+            <param name="name">The name of the Team Project.</param>
+            <param name="includeCapabilities">true to include project capabilities</param>
+            <returns>The Team Project, or <code>null</code> if none matched</returns>
+        </member>
+        <member name="M:Infinity.Clients.ProjectClient.UpdateProject(System.Guid,System.String)">
+            <summary>
+            Update the project information.
+            </summary>
+            <param name="id">The ID of the Team Project.</param>
+            <param name="description">The description to update in the project</param>
+            <returns>The Team Project, after update</returns>
+        </member>
+        <member name="M:Infinity.Clients.ProjectClient.UpdateProject(System.String,System.String)">
+            <summary>
+            Update the project information.
+            </summary>
+            <param name="name">The name of the project to update</param>
+            <param name="description">The description to update in the project</param>
+            <returns>The Team Project, after update</returns>
+        </member>
+        <member name="T:Infinity.Clients.PullRequestFilters">
+            <summary>
+            Pull request query filters
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.PullRequestFilters.Status">
+            <summary>
+            Pull requests matching the given status will be returned.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.PullRequestFilters.CreatorId">
+            <summary>
+            Pull requests created by the given user will be returned.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.PullRequestFilters.ReviewerId">
+            <summary>
+            Pull requests that have been assigned to the given user will
+            be returned.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.PullRequestFilters.SourceRefName">
+            <summary>
+            Pull requests originating from the given source branch will
+            be returned.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.PullRequestFilters.TargetRefName">
+            <summary>
+            Pull requests destined for the given target branch will be
+            returned.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.PullRequestFilters.Count">
+            <summary>
+            The maximum number of pull requests to return.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.PullRequestFilters.Skip">
+            <summary>
+            The number of pull requests to return from the query.
+            </summary>
+        </member>
+        <member name="T:Infinity.Clients.PushFilters">
+            <summary>
+            Push query filters
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.PushFilters.FromDate">
+            <summary>
+            Start date to query for matching commits.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.PushFilters.ToDate">
+            <summary>
+            End date to query for matching commits.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.PushFilters.Pusher">
+            <summary>
+            Pusher to match.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.PushFilters.Count">
+            <summary>
+            The maximum number of pushes to return.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.PushFilters.Skip">
+            <summary>
+            The number of pushes to return from the query.
+            </summary>
+        </member>
+        <member name="T:Infinity.Clients.RecursionLevel">
+            <summary>
+            Recursion level to query
+            </summary>
+        </member>
+        <member name="F:Infinity.Clients.RecursionLevel.None">
+            <summary>
+            Do not return children
+            </summary>
+        </member>
+        <member name="F:Infinity.Clients.RecursionLevel.OneLevel">
+            <summary>
+            Return only immediate children
+            </summary>
+        </member>
+        <member name="F:Infinity.Clients.RecursionLevel.Full">
+            <summary>
+            Return all children
+            </summary>
+        </member>
+        <member name="T:Infinity.Clients.RevisionOptions">
+            <summary>
+            The query to perform against the given revision.
+            </summary>
+        </member>
+        <member name="F:Infinity.Clients.RevisionOptions.None">
+            <summary>
+            None; return the specified revision.
+            </summary>
+        </member>
+        <member name="F:Infinity.Clients.RevisionOptions.FirstParent">
+            <summary>
+            Return the first parent of the specified revision.
+            </summary>
+        </member>
+        <member name="F:Infinity.Clients.RevisionOptions.PreviousChange">
+            <summary>
+            Return the previous change of the specified revision.
+            </summary>
+        </member>
+        <member name="T:Infinity.Clients.RevisionType">
+            <summary>
+            The type of revision in a Git repository.
+            </summary>
+        </member>
+        <member name="F:Infinity.Clients.RevisionType.Branch">
+            <summary>
+            A branch in a repository.
+            </summary>
+        </member>
+        <member name="F:Infinity.Clients.RevisionType.Tag">
+            <summary>
+            A tag in a repository.
+            </summary>
+        </member>
+        <member name="F:Infinity.Clients.RevisionType.Commit">
+            <summary>
+            A commit named by ID.
+            </summary>
+        </member>
+        <member name="T:Infinity.Clients.TeamClient">
+            <summary>
+            Client to query information about a project's teams.
+            </summary>
+        </member>
+        <member name="M:Infinity.Clients.TeamClient.GetTeams(System.Guid)">
+            <summary>
+            Get a list of teams for a project.
+            </summary>
+            <param name="projectId">The project ID to query teams for</param>
+            <returns>The list of teams</returns>
+        </member>
+        <member name="M:Infinity.Clients.TeamClient.GetTeam(System.Guid,System.Guid)">
+            <summary>
+            Get a project's team.
+            </summary>
+            <param name="projectId">The project ID that contains the team</param>
+            <param name="teamId">The team ID to query</param>
+            <returns>The team</returns>
+        </member>
+        <member name="M:Infinity.Clients.TeamClient.GetTeamMembers(System.Guid,System.Guid)">
+            <summary>
+            Get the team members for a team.
+            </summary>
+            <param name="projectId">The ID of the project that contains the team</param>
+            <param name="teamId">The ID of the team</param>
+            <returns>A list of team members</returns>
+        </member>
+        <member name="T:Infinity.Clients.TeamRoomClient">
+            <summary>
+            Client to join Team Rooms and read and write messages within them.
+            </summary>
+        </member>
+        <member name="M:Infinity.Clients.TeamRoomClient.GetRooms">
+            <summary>
+            Get a list of Team Rooms.
+            </summary>
+            <returns>The list of Team Rooms</returns>
+        </member>
+        <member name="M:Infinity.Clients.TeamRoomClient.GetRoom(System.Int32)">
+            <summary>
+            Get a Team Room.
+            </summary>
+            <param name="roomId">The ID of the Team Room</param>
+            <returns>The Team Room</returns>
+        </member>
+        <member name="M:Infinity.Clients.TeamRoomClient.CreateRoom(System.String,System.String)">
+            <summary>
+            Create a new Team Room.
+            </summary>
+            <param name="name">The name of the Team Room to create</param>
+            <param name="description">The description of the Team Room</param>
+            <returns>The newly created Team Room</returns>
+        </member>
+        <member name="M:Infinity.Clients.TeamRoomClient.UpdateRoom(System.Int32,System.String,System.String)">
+            <summary>
+            Update a Team Room.
+            </summary>
+            <param name="roomId">The ID of the Team Room to update</param>
+            <param name="name">The new name of the Team Room</param>
+            <param name="description">The new description of the Team Room</param>
+            <returns>The updated Team Room</returns>
+        </member>
+        <member name="M:Infinity.Clients.TeamRoomClient.DeleteRoom(System.Int32)">
+            <summary>
+            Deletes a Team Room.
+            </summary>
+            <param name="roomId">The ID of the Team Room to delete</param>
+        </member>
+        <member name="M:Infinity.Clients.TeamRoomClient.CreateMessage(System.Int32,System.String)">
+            <summary>
+            Write a message in a Team Room.
+            </summary>
+            <param name="roomId">The ID of the Team Room to write to</param>
+            <param name="content">The message to write</param>
+        </member>
+        <member name="M:Infinity.Clients.TeamRoomClient.GetMessages(System.Int32,System.String)">
+            <summary>
+            Gets the list of messages that have been written to the Team Room.
+            
+            You can filter by the PostedTime field for up to 30 days.  If there is
+            no filter then messages from the last 24 hours will be returned.
+            </summary>
+            <param name="roomId">The ID of the Team Room to query messages for</param>
+            <param name="filter">OData PostedTime filter to apply to the message list</param>
+            <returns>The list of messages</returns>
+        </member>
+        <member name="M:Infinity.Clients.TeamRoomClient.GetMessage(System.Int32,System.Int32)">
+            <summary>
+            Get the contents of a message in a Team Room.
+            </summary>
+            <param name="roomId">The ID of the Team Room</param>
+            <param name="messageId">The message ID to retrieve</param>
+            <returns>The message</returns>
+        </member>
+        <member name="M:Infinity.Clients.TeamRoomClient.UpdateMessage(System.Int32,System.Int32,System.String)">
+            <summary>
+            Update the content of an existing Team Room message.
+            </summary>
+            <param name="roomId">The ID of the Team Room</param>
+            <param name="messageId">The ID of the message to edit</param>
+            <param name="content">The new content of the message</param>
+            <returns>The updated message</returns>
+        </member>
+        <member name="M:Infinity.Clients.TeamRoomClient.DeleteMessage(System.Int32,System.Int32)">
+            <summary>
+            Delete a message from a Team Room.
+            </summary>
+            <param name="roomId">The ID of the Team Room</param>
+            <param name="messageId">The ID of the message to delete</param>
+        </member>
+        <member name="M:Infinity.Clients.TeamRoomClient.JoinRoom(System.Int32,System.Guid)">
+            <summary>
+            Join a Team Room.  You will be listed as present in the team room until
+            you leave.
+            </summary>
+            <param name="roomId">The ID of the Team Room to join</param>
+            <param name="userId">The ID of the user to join</param>
+        </member>
+        <member name="M:Infinity.Clients.TeamRoomClient.GetUsers(System.Int32)">
+            <summary>
+            Get the list of users in a Team Room.
+            </summary>
+            <param name="roomId">The ID of the Team Room</param>
+            <returns>The list of users</returns>
+        </member>
+        <member name="M:Infinity.Clients.TeamRoomClient.GetUser(System.Int32,System.Guid)">
+            <summary>
+            Get the details of a user in a Team Room.
+            </summary>
+            <param name="roomId">The ID of the Team Room</param>
+            <param name="userId">The ID of the user</param>
+            <returns>The user details</returns>
+        </member>
+        <member name="M:Infinity.Clients.TeamRoomClient.LeaveRoom(System.Int32,System.Guid)">
+            <summary>
+            Leave a Team Room.
+            </summary>
+            <param name="roomId">The ID of the Team Room to leave</param>
+            <param name="userId">The ID of the user of the leaving user</param>
+        </member>
+        <member name="T:Infinity.Models.Blob">
+            <summary>
+            Information about a Git blob.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Blob.Id">
+            <summary>
+            The Git object ID for this blob.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Blob.Size">
+            <summary>
+            The size of the Git blob.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Blob.Url">
+            <summary>
+            The URL of this blob's REST endpoint
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Blob.Links">
+            <summary>
+            Links to other blob resources.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.BlobLinks">
+            <summary>
+            Links to other Git blob resources.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.BlobLinks.Self">
+            <summary>
+            Link to the Git blob's REST API endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.BlobLinks.Repository">
+            <summary>
+            Link to the repository's REST API endpoint.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.BranchStatistics">
+            <summary>
+            Statistics for a branch.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.BranchStatistics.Name">
+            <summary>
+            The name of this branch.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.BranchStatistics.Commit">
+            <summary>
+            The commit at the tip of this branch.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.BranchStatistics.AheadCount">
+            <summary>
+            The number of commits this branch is "ahead" of the default
+            branch.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.BranchStatistics.BehindCount">
+            <summary>
+            The number of commits this branch is "behind" the default
+            branch.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.BranchStatistics.IsBaseVersion">
+            <summary>
+            Determines if this branch is the default branch.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.Commit">
+            <summary>
+            A commit in a Git repository.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Commit.Id">
+            <summary>
+            The commit ID.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Commit.Parents">
+            <summary>
+            The parents of the commit.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Commit.TreeId">
+            <summary>
+            The tree that makes up this commit.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Commit.Committer">
+            <summary>
+            The signature of the person who placed these changes in the
+            repository.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Commit.Author">
+            <summary>
+            The signature of the person who authored these changes.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Commit.Comment">
+            <summary>
+            The commit message.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Commit.Push">
+            <summary>
+            Information about who pushed this commit.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Commit.ChangeCounts">
+            <summary>
+            Information about the changes in this commit.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Commit.Changes">
+            <summary>
+            List of the changes in this commit.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Commit.Url">
+            <summary>
+            The URL for this commit information.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Commit.RemoteUrl">
+            <summary>
+            The URL to display the commit information in the web.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Commit.Links">
+            <summary>
+            Links to REST resources.
+            </summary>
+        </member>
+        <member name="T:Infinity.Clients.CommitFilters">
+            <summary>
+            Commit query filters
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.CommitFilters.ItemPath">
+            <summary>
+            Item path to match.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.CommitFilters.Committer">
+            <summary>
+            Committer to match.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.CommitFilters.Author">
+            <summary>
+            Author to match.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.CommitFilters.FromDate">
+            <summary>
+            Start date to query for matching commits.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.CommitFilters.ToDate">
+            <summary>
+            End date to query for matching commits.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.CommitFilters.Count">
+            <summary>
+            The maximum number of commits to return.
+            </summary>
+        </member>
+        <member name="P:Infinity.Clients.CommitFilters.Skip">
+            <summary>
+            The number of commits to return from the query.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.CommitChange">
+            <summary>
+            A change in a commit.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.CommitChange.Type">
+            <summary>
+            The type of change (edit, delete, or add).
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.CommitChange.Item">
+            <summary>
+            The item changed.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.CommitChangeCounts">
+            <summary>
+            Information about the files changed in a commit.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.CommitChangeCounts.Add">
+            <summary>
+            Number of files added in a commit.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.CommitChangeCounts.Edit">
+            <summary>
+            Number of files edited in a commit.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.CommitChangeCounts.Delete">
+            <summary>
+            Number of files deleted in a commit.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.CommitItem">
+            <summary>
+            The item changed in a Git commit.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.CommitItem.Type">
+            <summary>
+            The type of object changed (blob or tree).
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.CommitItem.IsFolder">
+            <summary>
+            Whether the item is a folder.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.CommitItem.Path">
+            <summary>
+            The path to the changed item.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.CommitItem.CommitId">
+            <summary>
+            The commit ID that changed this item.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.CommitItem.Url">
+            <summary>
+            The URL of the REST endpoint of the changed item.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.CommitLinks">
+            <summary>
+            Links to other Commit resources.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.CommitLinks.Self">
+            <summary>
+            Link to the Team Project's REST API endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.CommitLinks.Repository">
+            <summary>
+            Link to the Git Repository REST API endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.CommitLinks.Changes">
+            <summary>
+            Link to the Git Repository's changes REST API endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.CommitLinks.Tree">
+            <summary>
+            Link to the Git Tree's REST API endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.CommitLinks.Web">
+            <summary>
+            Link to the web access portal for this Team Project.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.ContentMetadata">
+            <summary>
+            Metadata for an item in a Git repository.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.ContentMetadata.Filename">
+            <summary>
+            The name of the item.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.ContentMetadata.Extension">
+            <summary>
+            The extension of the item.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.ContentMetadata.ContentType">
+            <summary>
+            The content type of the item.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.ContentMetadata.Encoding">
+            <summary>
+            The code page of the item.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.Diff">
+            <summary>
+            Differences between two commits.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Diff.CommonCommit">
+            <summary>
+            The ID of the common ancestor between the commits.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Diff.AheadCount">
+            <summary>
+            The number of commits that are in the target, beyond the
+            common ancestor.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Diff.BehindCount">
+            <summary>
+            The number of commits that are in the base, beyond the
+            common ancestor.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Diff.AllChangesIncluded">
+            <summary>
+            Are all changes included in this result.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Diff.ChangeCounts">
+            <summary>
+            The number of changes, by type, in this diff.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Diff.Changes">
+            <summary>
+            The changes in the diff.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.Identity">
+            <summary>
+            The identity of a member of a team.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Identity.Id">
+            <summary>
+            The ID of the user.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Identity.DisplayName">
+            <summary>
+            The display name of the user.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Identity.UniqueName">
+            <summary>
+            The unique (to a collection) name for the user.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Identity.Url">
+            <summary>
+            The URL of this user's REST endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Identity.ImageUrl">
+            <summary>
+            The URL of the avatar image of the user.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.ChangeType">
+            <summary>
+            The type of change to a file in a commit.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.ChangeType.Invalid">
+            <summary>
+            Invalid change type.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.ChangeType.Add">
+            <summary>
+            An added file.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.ChangeType.Edit">
+            <summary>
+            An edited file.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.ChangeType.Delete">
+            <summary>
+            A deleted file.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.Item">
+            <summary>
+            Information about an item in a Git repository.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Item.Id">
+            <summary>
+            The Git object ID for this item.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Item.Type">
+            <summary>
+            The type of this item.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Item.CommitId">
+            <summary>
+            The commit ID for this item.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Item.Path">
+            <summary>
+            The path for this item.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Item.IsFolder">
+            <summary>
+            Whether this item is a folder.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Item.Metadata">
+            <summary>
+            The content metadata for this item.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Item.Url">
+            <summary>
+            The URL of this blob's REST endpoint
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.ObjectId">
+            <summary>
+            A SHA-1 ID of a Git object.
+            </summary>
+        </member>
+        <member name="M:Infinity.Models.ObjectId.#ctor(System.String)">
+            <summary>
+            Create a Git object ID.
+            </summary>
+            <param name="str">The object ID string</param>
+        </member>
+        <member name="M:Infinity.Models.ObjectId.ToString">
+            <summary>
+            Gets the ASCII armored ID string.
+            </summary>
+            <returns>The ID string</returns>
+        </member>
+        <member name="M:Infinity.Models.ObjectId.Equals(System.Object)">
+            <summary>
+            Determine if two object IDs are equal
+            </summary>
+            <param name="obj">The other object ID</param>
+            <returns>Whether the object IDs are equal</returns>
+        </member>
+        <member name="M:Infinity.Models.ObjectId.GetHashCode">
+            <summary>
+            Get the hash code of the object
+            </summary>
+            <returns>The hash code of the object</returns>
+        </member>
+        <member name="P:Infinity.Models.ObjectId.Id">
+            <summary>
+            Gets the ID bytes.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.PushDetails">
+            <summary>
+            The information from when a change was pushed.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PushDetails.Id">
+            <summary>
+            The unique ID of the push.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PushDetails.Repository">
+            <summary>
+            The repository the changes were pushed into.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PushDetails.Date">
+            <summary>
+            The date the changes were pushed.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PushDetails.PushedBy">
+            <summary>
+            The user who pushed the change.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PushDetails.RefUpdates">
+            <summary>
+            The reference updates this push performed.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PushDetails.Commits">
+            <summary>
+            The commits included in the push.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PushDetails.Url">
+            <summary>
+            The URL of the push details.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PushDetails.Links">
+            <summary>
+            Links to REST resources.
+            </summary>
+        </member>
+        <member name="T:Infinity.Clients.Revision">
+            <summary>
+            A revision in a Git repository:  a branch, a tag or a commit.
+            </summary>
+        </member>
+        <member name="M:Infinity.Clients.Revision.#ctor(System.String)">
+            <summary>
+            A revision in a Git repository, by the fully-qualified reference
+            name or the commit ID.
+            </summary>
+            <param name="refNameOrCommitId">The reference name or commit ID</param>
+        </member>
+        <member name="M:Infinity.Clients.Revision.#ctor(Infinity.Models.ObjectId)">
+            <summary>
+            A revision in a Git repository, by the commit ID.
+            </summary>
+            <param name="commitId"></param>
+        </member>
+        <member name="T:Infinity.Models.PushLinks">
+            <summary>
+            Links to other Git push resources.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PushLinks.Self">
+            <summary>
+            Link to the push's REST API endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PushLinks.Repository">
+            <summary>
+            Link to the repository's REST API endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PushLinks.Pusher">
+            <summary>
+            Link to the pusher's REST API endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PushLinks.Commits">
+            <summary>
+            Links to the REST API endpoints for the commits of a push.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PushLinks.Refs">
+            <summary>
+            Links to the REST API endpoints for the references.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.RefUpdate">
+            <summary>
+            Information about reference updates.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.RefUpdate.Name">
+            <summary>
+            The name of the reference that was updated.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.RefUpdate.RepositoryId">
+            <summary>
+            The repository ID that contained the push.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.RefUpdate.OldObjectId">
+            <summary>
+            The object ID before the push.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.RefUpdate.NewObjectId">
+            <summary>
+            The object ID after the push.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.CommitLink">
+            <summary>
+            A link to commit information.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.CommitLink.Id">
+            <summary>
+            The ID of the commit.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.CommitLink.Url">
+            <summary>
+            The URL of the rest endpoint for the commit.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.LinkUrl">
+            <summary>
+            A link to a resource.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.LinkUrl.Url">
+            <summary>
+            The URL for this resource's link.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.ObjectType">
+            <summary>
+            The type of entry in a Git tree.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.ObjectType.Invalid">
+            <summary>
+            An invalid object type
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.ObjectType.Tree">
+            <summary>
+            A tree.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.ObjectType.Blob">
+            <summary>
+            A blob.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.ObjectType.Commit">
+            <summary>
+            A commit (submodule).
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.ProcessTemplateCapabilities">
+            <summary>
+            The process template settings for a Team Project.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.ProcessTemplateCapabilities.TemplateName">
+            <summary>
+            The name of the process template.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.ProjectCapabilities">
+            <summary>
+            The capabilities and settings for a Team Project.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.ProjectCapabilities.VersionControl">
+            <summary>
+            The version control settings for a Team Project.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.ProjectCapabilities.ProcessTemplate">
+            <summary>
+            The process template settings for a Team Project.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.Link">
+            <summary>
+            A link to a resource.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Link.Id">
+            <summary>
+            The ID for this resource
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Link.Url">
+            <summary>
+            The URL for this resource's link.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.ProjectLinks">
+            <summary>
+            Links to other Project resources.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.ProjectLinks.Self">
+            <summary>
+            Link to the Team Project's REST API endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.ProjectLinks.Collection">
+            <summary>
+            Link to the Project Collection REST API endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.ProjectLinks.Web">
+            <summary>
+            Link to the web access portal for this Team Project.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.PullRequest">
+            <summary>
+            A pull request, a reviewable request to merge one branch into
+            another.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequest.Id">
+            <summary>
+            The unique ID of the pull request.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequest.Url">
+            <summary>
+            The URL of the REST endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequest.Status">
+            <summary>
+            The status of the pull request.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequest.SourceRefName">
+            <summary>
+            The name of the source branch of the pull request, the branch
+            that will be merged into the target upon acceptance.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequest.TargetRefName">
+            <summary>
+            The name of the target branch of the pull request, the branch
+            that will receive the update upon acceptance.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequest.MergeStatus">
+            <summary>
+            The status of the ability to automerge the source branch into
+            the target branch.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequest.MergeId">
+            <summary>
+            The ID of the merge background job.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequest.Title">
+            <summary>
+            The short title of the pull request.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequest.Description">
+            <summary>
+            The detailed description of the pull request.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequest.CreationDate">
+            <summary>
+            The time the pull request was created by the user.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequest.ClosedDate">
+            <summary>
+            The time the pull request was closed.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequest.LastMergeSourceCommit">
+            <summary>
+            The head commit of the source branch.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequest.LastMergeTargetCommit">
+            <summary>
+            The head commit of the target branch.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequest.LastMergeCommit">
+            <summary>
+            The commit that results from the merge of the source and target
+            branches.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequest.Repository">
+            <summary>
+            The repository that the pull request was opened in.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequest.CreatedBy">
+            <summary>
+            The creator of the pull request.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequest.Links">
+            <summary>
+            Links to other pull request resources.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequest.Reviewers">
+            <summary>
+            The list of reviewers on a pull request.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.PullRequestLinks">
+            <summary>
+            Links to other pull request resources.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequestLinks.Self">
+            <summary>
+            Link to the pull request's REST API endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequestLinks.Repository">
+            <summary>
+            Link to the repository's REST API endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequestLinks.WorkItems">
+            <summary>
+            Link to the work items for this Team Project.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequestLinks.SourceBranch">
+            <summary>
+            Link to the source branch's REST API endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequestLinks.TargetBranch">
+            <summary>
+            Link to the target branch's REST API endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequestLinks.SourceCommit">
+            <summary>
+            Link to the source branch's REST API endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequestLinks.TargetCommit">
+            <summary>
+            Link to the target branch's REST API endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequestLinks.CreatedBy">
+            <summary>
+            Link to the creator's REST API endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequestLinks.MergeCommit">
+            <summary>
+            Link to the merged commit's REST API endpoint
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.PullRequestMergeStatus">
+            <summary>
+            The status of merging the source and target branches
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.PullRequestMergeStatus.Queued">
+            <summary>
+            The merge status is not yet known, the merge is being performed.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.PullRequestMergeStatus.Conflicts">
+            <summary>
+            The merge did not complete successfully as there were conflicts
+            that could not be automerged.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.PullRequestMergeStatus.Succeeded">
+            <summary>
+            The merge completed successfully without conflicts.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.PullRequestMergeStatus.RejectedByPolicy">
+            <summary>
+            The source and target could not be automerged; the contents of
+            the source or target were too large to analyze.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.PullRequestMergeStatus.Failure">
+            <summary>
+            An unknown failure occurred.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.PullRequestReviewer">
+            <summary>
+            A reviewer on a pull request.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequestReviewer.Vote">
+            <summary>
+            The value of the vote: 1 for thumbs up, 0 for neutral (or not
+            voted); -1 for thumbs down
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.PullRequestReviewer.ReviewerUrl">
+            <summary>
+            The URL of the reviewer.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.PullRequestStatus">
+            <summary>
+            The state of a pull request
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.PullRequestStatus.Active">
+            <summary>
+            The pull request is currently open and active
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.PullRequestStatus.Abandoned">
+            <summary>
+            The pull request has been abandoned by the author
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.PullRequestStatus.Completed">
+            <summary>
+            The pull request has been merged into the target branch
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.PullRequestVote">
+            <summary>
+            The voting response from a reviewer of a pull request.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.PullRequestVote.No">
+            <summary>
+            The reviewer does not approve this pull request.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.PullRequestVote.None">
+            <summary>
+            The reviewer has no vote on this pull request.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.PullRequestVote.Yes">
+            <summary>
+            The reviewer approves this pull request.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.Signature">
+            <summary>
+            The person who authored or committed a change, and the date that
+            it was created.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Signature.Name">
+            <summary>
+            The name of the person who authored or committed the change.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Signature.Email">
+            <summary>
+            The email address of the person who authored or committed the
+            change.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Signature.Date">
+            <summary>
+            The date the change was authored or committed.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.TeamRoomUserDetails">
+            <summary>
+            The information about a user in a Team Room.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TeamRoomUserDetails.RoomId">
+            <summary>
+            The ID of the Team Room.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TeamRoomUserDetails.User">
+            <summary>
+            The user information for this user.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TeamRoomUserDetails.LastActivity">
+            <summary>
+            The last date the user was seen in this Team Room.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TeamRoomUserDetails.JoinedDate">
+            <summary>
+            The join date of the user.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TeamRoomUserDetails.IsOnline">
+            <summary>
+            Whether the user is currently online or not.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.Tree">
+            <summary>
+            Information about a Git tree.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Tree.Id">
+            <summary>
+            The Git object ID for this tree.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Tree.Url">
+            <summary>
+            The URL of this tree's REST endpoint
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Tree.TreeEntries">
+            <summary>
+            The entries in this tree.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Tree.Size">
+            <summary>
+            The size of the tree as a serialized Git object.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Tree.Links">
+            <summary>
+            Links to other tree resources.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.TreeEntry">
+            <summary>
+            Information about an entry in a Git tree.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TreeEntry.Id">
+            <summary>
+            The Git object ID for this tree entry.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TreeEntry.RelativePath">
+            <summary>
+            The name of the entry in the tree.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TreeEntry.Mode">
+            <summary>
+            The mode of the tree entry.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TreeEntry.Type">
+            <summary>
+            The type of the tree entry.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TreeEntry.Url">
+            <summary>
+            The URL of this tree's REST endpoint
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TreeEntry.Size">
+            <summary>
+            The size of the tree as a serialized Git object.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.TreeLinks">
+            <summary>
+            Links to other Git tree resources.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TreeLinks.Self">
+            <summary>
+            Link to the Git tree's REST API endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TreeLinks.Repository">
+            <summary>
+            Link to the repository's REST API endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TreeLinks.TreeEntries">
+            <summary>
+            Links to the REST API endpoints for the entries of a tree.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.VersionControlType">
+            <summary>
+            The version control type of a Team Project, either
+            TFVC or Git.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.VersionControlType.Unknown">
+            <summary>
+            The Team Project's version control type is not known.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.VersionControlType.TFVC">
+            <summary>
+            The Team Project uses Team Foundation Version Control.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.VersionControlType.Git">
+            <summary>
+            The Team Project uses Git.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.Team">
+            <summary>
+            A team defined in Team Foundation Server.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Team.Id">
+            <summary>
+            The unique ID for this team
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Team.Name">
+            <summary>
+            The name of this team
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Team.Url">
+            <summary>
+            The URL of this team's REST endpoint
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Team.Description">
+            <summary>
+            The description of this team
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Team.IdentityUrl">
+            <summary>
+            The identity URL for this team
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.VersionControlCapabilities">
+            <summary>
+            The version control settings for a Team Project.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.VersionControlCapabilities.VersionControlType">
+            <summary>
+            The type of version control for this Team Project
+            (TFVC or Git).
+            </summary>
+        </member>
+        <member name="T:Infinity.Exceptions.TfsConflictException">
+            <summary>
+            Exception thrown when you attempt to perform an action that
+            would conflict with the existing state of the server.
+            </summary>
+        </member>
+        <member name="T:Infinity.Exceptions.TfsRestException">
+            <summary>
+            Exception thrown when a REST call failed.
+            </summary>
+        </member>
+        <member name="P:Infinity.Exceptions.TfsRestException.Response">
+            <summary>
+            The REST response that led to the failure.
+            </summary>
+        </member>
+        <member name="T:Infinity.Exceptions.TfsUnauthorizedException">
+            <summary>
+            Exception thrown when you are not authorized to perform the requested operation.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.Project">
+            <summary>
+            Information about a Team Project.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Project.Id">
+            <summary>
+            The unique ID for this Team Project.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Project.Name">
+            <summary>
+            The name of the Team Project.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Project.Description">
+            <summary>
+            The description of the Team Project.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Project.Url">
+            <summary>
+            The URL of the Team Project's REST endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Project.State">
+            <summary>
+            The state of the Team Project.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Project.DefaultTeam">
+            <summary>
+            The default team for this Team Project.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Project.Links">
+            <summary>
+            Links to other Project resources.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Project.Capabilities">
+            <summary>
+            The settings and capabilities for this Team Project.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.ProjectState">
+            <summary>
+            The state of the Team Project.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.ProjectState.Invalid">
+            <summary>
+            This project state is unknown
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.ProjectState.WellFormed">
+            <summary>
+            The Team Project is operational.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.ProjectState.CreatePending">
+            <summary>
+            The Team Project is being created.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.ProjectState.Deleting">
+            <summary>
+            The Team Project is being deleted.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.ProjectState.New">
+            <summary>
+            The Team Project is new.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.ProjectState.All">
+            <summary>
+            All Team Projects should be queried.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.Reference">
+            <summary>
+            A reference (branch, tag, etc) in a Git repository.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Reference.Name">
+            <summary>
+            The fully-qualified name for the reference.  For branches, this
+            will be prefixed with <code>refs/heads/</code>.  For tags, this
+            will be prefixed with <code>refs/tags/</code>.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Reference.Id">
+            <summary>
+            The object ID that this reference points to.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Reference.Url">
+            <summary>
+            The URL of the reference's REST endpoint.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.Repository">
+            <summary>
+            A Git repository.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Repository.Id">
+            <summary>
+            The unique ID for this Git repository.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Repository.Name">
+            <summary>
+            The name of this Git repository.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Repository.Url">
+            <summary>
+            The URL of this repository's REST endpoint.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Repository.Project">
+            <summary>
+            The Team Project that this Git repository is in.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Repository.DefaultBranch">
+            <summary>
+            The name of the default branch for this repository.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.Repository.RemoteUrl">
+            <summary>
+            The URL used to clone the Git repository.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.TeamRoom">
+            <summary>
+            A Team Room for chat.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TeamRoom.Id">
+            <summary>
+            The unique ID for this Team Room.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TeamRoom.Name">
+            <summary>
+            The name of this Team Room.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TeamRoom.Description">
+            <summary>
+            The description for this Team Room.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TeamRoom.LastActivity">
+            <summary>
+            The last message activity in the Team Room.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TeamRoom.IsClosed">
+            <summary>
+            Whether the Team Room is closed or not.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TeamRoom.CreatedBy">
+            <summary>
+            The creator of the Team Room.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TeamRoom.CreatedDate">
+            <summary>
+            The date the Team Room was created.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TeamRoom.HasAdminPermissions">
+            <summary>
+            Whether the current user has administrative
+            permissions for the Team Room.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TeamRoom.HasReadWritePermissions">
+            <summary>
+            Whether the current user has read and write permissions
+            for the Team Room.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.TeamRoomMessage">
+            <summary>
+            A message in a Team Room.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TeamRoomMessage.Id">
+            <summary>
+            The unique ID of the message.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TeamRoomMessage.Content">
+            <summary>
+            The content of the message.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TeamRoomMessage.MessageType">
+            <summary>
+            The type of message.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TeamRoomMessage.PostedTime">
+            <summary>
+            The time the message was posted.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TeamRoomMessage.PostedRoomId">
+            <summary>
+            The ID of the Team Room the message was posted in.
+            </summary>
+        </member>
+        <member name="P:Infinity.Models.TeamRoomMessage.PostedBy">
+            <summary>
+            The author of the message.
+            </summary>
+        </member>
+        <member name="T:Infinity.Models.TeamRoomMessageType">
+            <summary>
+            The type of a message in a Team Room
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.TeamRoomMessageType.System">
+            <summary>
+            A system message, such as an indication that a
+            user has joined or left the room.
+            </summary>
+        </member>
+        <member name="F:Infinity.Models.TeamRoomMessageType.Normal">
+            <summary>
+            A normal message from a user to the room.
+            </summary>
+        </member>
+        <member name="T:Infinity.TfsClient">
+            <summary>
+            The TFS client API.
+            </summary>
+        </member>
+        <member name="M:Infinity.TfsClient.#ctor(Infinity.TfsClientConfiguration)">
+            <summary>
+            Create a new TFS client API.
+            </summary>
+            <param name="configuration">The configuration for the TFS server.</param>
+        </member>
+        <member name="P:Infinity.TfsClient.Project">
+            <summary>
+            Information about Team Projects.
+            </summary>
+        </member>
+        <member name="P:Infinity.TfsClient.Git">
+            <summary>
+            Information about Git repositories, commits, references, etc.
+            </summary>
+        </member>
+        <member name="P:Infinity.TfsClient.Team">
+            <summary>
+            Information about project teams.
+            </summary>
+        </member>
+        <member name="P:Infinity.TfsClient.TeamRoom">
+            <summary>
+            Information about Team Rooms.
+            </summary>
+        </member>
+        <member name="T:Infinity.TfsClientConfiguration">
+            <summary>
+            Configuration for a <see cref="T:Infinity.TfsClient"/> instance.
+            </summary>
+        </member>
+        <member name="M:Infinity.TfsClientConfiguration.#ctor">
+            <summary>
+            Configuration for a <see cref="T:Infinity.TfsClient"/> instance.
+            </summary>
+        </member>
+        <member name="P:Infinity.TfsClientConfiguration.Url">
+            <summary>
+            The URI of the Project Collection to connect to.
+            
+            For Visual Studio Online, this will look like
+            <code>https://accountname.visualstudio.com/DefaultCollection</code>.
+            For on-premises Team Foundation Server instances, this will look
+            like <code>http://tfsserver:8080/tfs/DefaultCollection</code>.
+            </summary>
+        </member>
+        <member name="P:Infinity.TfsClientConfiguration.Credentials">
+            <summary>
+            The credentials to authenticate with.  For Visual Studio Online,
+            this should be the username of the "alternate credentials"
+            that you have configured for your account.  For on-premises
+            servers, you may specify credentials or use default.
+            </summary>
+        </member>
+        <member name="P:Infinity.TfsClientConfiguration.UserAgent">
+            <summary>
+            The user-agent string to include on the HTTP request.
+            </summary>
+        </member>
+        <member name="P:Infinity.TfsClientConfiguration.OAuthToken">
+            <summary>
+            The OAuth Access token used to access VSO. If this is specified it will take
+            precendence over <see cref="P:Infinity.TfsClientConfiguration.Credentials"/> for VSO.
+            </summary>
+        </member>
+        <member name="T:Infinity.TfsRestRequest">
+            <summary>
+            REST request class for TFS / Visual Studio Online
+            </summary>
+        </member>
+        <member name="M:Infinity.TfsRestRequest.#ctor(System.String,System.Net.Http.HttpMethod,System.String)">
+            <summary>
+            Create a REST request for a TFS server.
+            </summary>
+            <param name="resource">Request URI</param>
+            <param name="method">The HTTP method</param>
+            <param name="version">API version</param>
+        </member>
+        <member name="M:Infinity.TfsRestRequest.#ctor(System.String)">
+            <summary>
+            Create a REST request for a TFS server.
+            </summary>
+            <param name="resource">Request URI</param>
+        </member>
+        <member name="M:Infinity.TfsRestRequest.#ctor(System.String,System.Net.Http.HttpMethod)">
+            <summary>
+            Create a REST request for a TFS server.
+            </summary>
+            <param name="resource">Request URI</param>
+            <param name="method">The HTTP method</param>
+        </member>
+    </members>
+</doc>

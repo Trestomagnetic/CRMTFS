@@ -1,0 +1,13 @@
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\Projects\TfsRestApi\CrmPlayground\obj\Debug\CrmPlayground.csprojResolveAssemblyReference.cache
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\Projects\TfsRestApi\CrmPlayground\bin\Debug\CrmPlayground.exe.config
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\Projects\TfsRestApi\CrmPlayground\bin\Debug\CrmPlayground.exe
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\Projects\TfsRestApi\CrmPlayground\bin\Debug\CrmPlayground.pdb
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\Projects\TfsRestApi\CrmPlayground\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\Projects\TfsRestApi\CrmPlayground\bin\Debug\Microsoft.IdentityModel.dll
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\Projects\TfsRestApi\CrmPlayground\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\Projects\TfsRestApi\CrmPlayground\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\Projects\TfsRestApi\CrmPlayground\obj\Debug\CrmPlayground.exe
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\Projects\TfsRestApi\CrmPlayground\obj\Debug\CrmPlayground.pdb
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\Projects\CRMTFS\CrmPlayground\bin\Debug\CrmPlayground.exe.config
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\Projects\CRMTFS\CrmPlayground\obj\Debug\CrmPlayground.exe
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\Projects\CRMTFS\CrmPlayground\obj\Debug\CrmPlayground.pdb
