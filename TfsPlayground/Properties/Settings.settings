@@ -6,7 +6,7 @@
       <Value Profile="(Default)">SomeTest</Value>
     </Setting>
     <Setting Name="PersonalAccessToken" Type="System.String" Scope="User">
-      <Value Profile="(Default)">scmga354je26yr4gpp4m4ip4dujkytlgngbkp2ji2ktgthjs3qra</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="AccountName" Type="System.String" Scope="User">
       <Value Profile="(Default)">SkyKick</Value>
