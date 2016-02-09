@@ -37,7 +37,7 @@ namespace TfsPlayground.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("scmga354je26yr4gpp4m4ip4dujkytlgngbkp2ji2ktgthjs3qra")]
         public string PersonalAccessToken {
             get {
                 return ((string)(this["PersonalAccessToken"]));
