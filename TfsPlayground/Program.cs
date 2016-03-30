@@ -7,9 +7,6 @@ using TfsPlayground.Properties;
 using System.Threading;
 using System.Text.RegularExpressions;
 using VisualStudioOnline.Api.Rest;
-//using Microsoft.TeamFoundation.Client;
-//using Microsoft.TeamFoundation.Framework.Common;
-//using Microsoft.TeamFoundation.Framework.Client;
 
 namespace TfsPlayground
 {

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TfsPlayground;
+using SkyTfs;
 
 namespace CrmPlayground
 {
@@ -17,14 +17,13 @@ namespace CrmPlayground
             {
                 var swatWorkItem = new TfsWorkItem();
 
-                //TODO
-                //int tfsId;
-                //if (ticket.Attributes.ContainsKey("cv_tfsitem") &&
-                //    ticket.Attributes["cv_tfsitem"] != null &&
-                //    int.TryParse(ticket.Attributes["cv_tfsitem"].ToString(), out tfsId))
-                //{
-                //    swatWorkItem = tfsTeam.GetTfsWorkItemByItemId(tfsId);
-                //}
+                int tfsId;
+                if (ticket.Attributes.ContainsKey("cv_tfsitem") &&
+                    ticket.Attributes["cv_tfsitem"] != null &&
+                    int.TryParse(ticket.Attributes["cv_tfsitem"].ToString(), out tfsId))
+                {
+                    swatWorkItem = await tfsTeam.GetTfsWorkItemByItemId(tfsId);
+                }
 
                 if (swatWorkItem?.Id != null)
                     await UpdateWorkItemFromSwatTicket(swatWorkItem, ticket);

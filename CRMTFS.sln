@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CV.GLL.CRM", "..\..\..\..\.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmPlayground_New", "CrmPlayground_New\CrmPlayground_New.csproj", "{45839916-7F1D-4EDC-B5AB-4526DB073B08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyTfs", "SkyTfs\SkyTfs.csproj", "{74F90191-218F-470B-9C5F-89FBE8ADEB9E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +60,12 @@ Global
 		{45839916-7F1D-4EDC-B5AB-4526DB073B08}.Release|Any CPU.Build.0 = Release|Any CPU
 		{45839916-7F1D-4EDC-B5AB-4526DB073B08}.TestDeployment|Any CPU.ActiveCfg = Release|Any CPU
 		{45839916-7F1D-4EDC-B5AB-4526DB073B08}.TestDeployment|Any CPU.Build.0 = Release|Any CPU
+		{74F90191-218F-470B-9C5F-89FBE8ADEB9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74F90191-218F-470B-9C5F-89FBE8ADEB9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74F90191-218F-470B-9C5F-89FBE8ADEB9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74F90191-218F-470B-9C5F-89FBE8ADEB9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74F90191-218F-470B-9C5F-89FBE8ADEB9E}.TestDeployment|Any CPU.ActiveCfg = Release|Any CPU
+		{74F90191-218F-470B-9C5F-89FBE8ADEB9E}.TestDeployment|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -90,6 +90,10 @@
       <Project>{bd091d71-5ad9-4e8c-943a-5d37fc56f6f3}</Project>
       <Name>CV.GLL.CRM</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SkyTfs\SkyTfs.csproj">
+      <Project>{74f90191-218f-470b-9c5f-89fbe8adeb9e}</Project>
+      <Name>SkyTfs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TfsPlayground\TfsPlayground.csproj">
       <Project>{dfad7ea7-213d-4105-a3e9-c7e3ae7209ad}</Project>
       <Name>TfsPlayground</Name>

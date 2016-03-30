@@ -25,7 +25,7 @@ namespace CrmPlayground.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("trestin.bradley@skykick.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string OverrideUsername {
             get {
                 return ((string)(this["OverrideUsername"]));
@@ -37,7 +37,7 @@ namespace CrmPlayground.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("tb1116940+")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string OverridePassword {
             get {
                 return ((string)(this["OverridePassword"]));
@@ -49,73 +49,15 @@ namespace CrmPlayground.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("skykick")]
-        public string CrmOrgName {
-            get {
-                return ((string)(this["CrmOrgName"]));
-            }
-            set {
-                this["CrmOrgName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("crm.dynamics.com")]
-        public string CrmServerAddress {
-            get {
-                return ((string)(this["CrmServerAddress"]));
-            }
-            set {
-                this["CrmServerAddress"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://disco.crm.dynamics.com/XRMServices/2011/Discovery.svc")]
-        public string CrmDiscoveryUrl {
-            get {
-                return ((string)(this["CrmDiscoveryUrl"]));
-            }
-            set {
-                this["CrmDiscoveryUrl"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://cloudvisors.api.crm.dynamics.com/XRMServices/2011/Organization.svc")]
+        [global::System.Configuration.DefaultSettingValueAttribute(@" -                 <value>https://cloudvisors.api.crm.dynamics.com/XRMServices/2011/Organization.svc</value>
+ -                 <value>https://cloudvisors.api.crm.dynamics.com/XRMServices/2011/Organization.svc</value>
+https://cloudvisors.api.crm.dynamics.com/XRMServices/2011/Organization.svc")]
         public string CrmOrgServiceUrl {
             get {
                 return ((string)(this["CrmOrgServiceUrl"]));
             }
             set {
                 this["CrmOrgServiceUrl"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("crm_plugins@skykick.com")]
-        public string CrmUsername {
-            get {
-                return ((string)(this["CrmUsername"]));
-            }
-            set {
-                this["CrmUsername"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"SD+uwCSUgeEu7u6BpWWWiJXvIo6GVz4zsi+WU4Qy3hQGg8abVhZiJ/2nmXiKNR6eJ66AEPSx1Wy/FK3qO9Qior3M+MhCWSotg0ND//Se6y4fS3wcFLGjfTfhcVMTrmN6mPu11euszzWGDziUgIB0uUiMHeAr9acnIBpYhgZ9TZkMlOlWGMybPVquPnmXnvi5gQ2lMGWHOKk9qey8FL92d4Kw9ZrifAA9tOBY4kQR7pFM+WTM0rnhvU9NognUdZYZHNKSUcqntLwAnFWsr/KoUfxfcVo3kSlj+k/aI1z4zmkNIh6HK30q+wM87eQPAkKw2q/qJ0E/n8S6O5Lub5Dpy8YxYYvpuwqTBUNRUSFg5EVKpiFw9V95yoJ86GPjdc4TGT/MPAEApdKetBy/2rJhlXYi5Aj8eDJfGcOPHfD9iKzU/lL0u36XSt67EAF9PqneJBlfDiu9kfBdeD3Taq7nZAeV3vZbSD/bLgxiD1J5mVxUuJ50xIbl4wo7G12TjfXikfUQeSztGnCjS6ZA2J36vRU8ePZ3ETqGmKhG8+nc0wZIX69QveVjdQScfkFZsE8/HDJoXfOc1Hn2W0uBLpdeduDTVqzyCUq/LnlcYS0Vkm46orK2Pabe4nVMjednJcst9x3Cwt6VkiOi62u50B+N9bSh/KpRBuFL6RosFXsySf+P2MN2Fv0is2JqKDk6OcZdA5MxvlRdSoqtqZVh9fpR6JG0RnKIKiNXunCl+8lT6CF4cfmN5lB3rjPNfkUSe5CrJnVYnDGD1gshfjN/jIm2qjroLbv83Y2IVDk8SSG21tlwC5Srz7vk2O3Qqmc=")]
-        public string CrmPassword {
-            get {
-                return ((string)(this["CrmPassword"]));
-            }
-            set {
-                this["CrmPassword"] = value;
             }
         }
     }

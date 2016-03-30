@@ -133,7 +133,6 @@ C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\CrmPlayground_New\b
 C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\CrmPlayground_New\bin\Debug\System.Threading.Tasks.Dataflow.xml
 C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\CrmPlayground_New\bin\Debug\RestSharp.xml
 C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\CrmPlayground_New\bin\Debug\CV.GLL.SKEACommon.pdb
-C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\CrmPlayground_New\bin\Debug\Ninject.Extensions.Factory.xml
 C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\CrmPlayground_New\bin\Debug\StackExchange.Redis.pdb
 C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\CrmPlayground_New\bin\Debug\StackExchange.Redis.xml
 C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\CrmPlayground_New\bin\Debug\EntityFramework.xml
@@ -249,3 +248,7 @@ C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\CrmPlayground_New\o
 C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\CrmPlayground_New\bin\Debug\Newtonsoft.Json.dll
 C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\CrmPlayground_New\bin\Debug\Newtonsoft.Json.pdb
 C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\CrmPlayground_New\bin\Debug\Newtonsoft.Json.xml
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\CrmPlayground_New\bin\Debug\SkyTfs.dll
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\CrmPlayground_New\bin\Debug\CV.Svc.EmailSender.dll
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\CrmPlayground_New\bin\Debug\SkyTfs.pdb
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\CrmPlayground_New\bin\Debug\CV.Svc.EmailSender.pdb

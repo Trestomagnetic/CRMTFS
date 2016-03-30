@@ -4,3 +4,10 @@ C:\CVProjects\VisualStudioOnline.Api.Rest\bin\Debug\Newtonsoft.Json.dll
 C:\CVProjects\VisualStudioOnline.Api.Rest\obj\Debug\VisualStudioOnline.Api.Rest.csprojResolveAssemblyReference.cache
 C:\CVProjects\VisualStudioOnline.Api.Rest\obj\Debug\VisualStudioOnline.Api.Rest.dll
 C:\CVProjects\VisualStudioOnline.Api.Rest\obj\Debug\VisualStudioOnline.Api.Rest.pdb
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\VisualStudioOnline.Api.Rest\bin\Debug\VisualStudioOnline.Api.Rest.dll
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\VisualStudioOnline.Api.Rest\bin\Debug\VisualStudioOnline.Api.Rest.pdb
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\VisualStudioOnline.Api.Rest\bin\Debug\Newtonsoft.Json.dll
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\VisualStudioOnline.Api.Rest\bin\Debug\Newtonsoft.Json.xml
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\VisualStudioOnline.Api.Rest\obj\Debug\VisualStudioOnline.Api.Rest.csprojResolveAssemblyReference.cache
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\VisualStudioOnline.Api.Rest\obj\Debug\VisualStudioOnline.Api.Rest.dll
+C:\Users\trestin.bradley\Documents\Visual Studio 2015\CRMTFS\VisualStudioOnline.Api.Rest\obj\Debug\VisualStudioOnline.Api.Rest.pdb
