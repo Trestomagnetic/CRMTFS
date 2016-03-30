@@ -25,61 +25,73 @@ namespace TfsPlayground.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("SomeTest")]
-        public string PersonalAccessDescription {
+        [global::System.Configuration.DefaultSettingValueAttribute("https://SkyKick.visualstudio.com/DefaultCollection")]
+        public string TfsUri {
             get {
-                return ((string)(this["PersonalAccessDescription"]));
+                return ((string)(this["TfsUri"]));
             }
             set {
-                this["PersonalAccessDescription"] = value;
+                this["TfsUri"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("scmga354je26yr4gpp4m4ip4dujkytlgngbkp2ji2ktgthjs3qra")]
-        public string PersonalAccessToken {
+        [global::System.Configuration.DefaultSettingValueAttribute("SkyKick 1")]
+        public string TfsSkyKickTeamProjectName {
             get {
-                return ((string)(this["PersonalAccessToken"]));
+                return ((string)(this["TfsSkyKickTeamProjectName"]));
             }
             set {
-                this["PersonalAccessToken"] = value;
+                this["TfsSkyKickTeamProjectName"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("SkyKick")]
-        public string AccountName {
+        [global::System.Configuration.DefaultSettingValueAttribute("SWAT-TFS")]
+        public string TfsSwatUsername {
             get {
-                return ((string)(this["AccountName"]));
+                return ((string)(this["TfsSwatUsername"]));
             }
             set {
-                this["AccountName"] = value;
+                this["TfsSwatUsername"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("DefaultCollection")]
-        public string DefaultCollection {
+        [global::System.Configuration.DefaultSettingValueAttribute("l7w2ez2lkjyca2ibnq3t3m7m2at5qjoyw7ijphrezlfe4z4ripbq")]
+        public string TfsSwatPasskey {
             get {
-                return ((string)(this["DefaultCollection"]));
+                return ((string)(this["TfsSwatPasskey"]));
             }
             set {
-                this["DefaultCollection"] = value;
+                this["TfsSwatPasskey"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("DevOps 1")]
-        public string TeamProject_DevOps {
+        public string TfsDevOpsTeamProjectName {
             get {
-                return ((string)(this["TeamProject_DevOps"]));
+                return ((string)(this["TfsDevOpsTeamProjectName"]));
             }
             set {
-                this["TeamProject_DevOps"] = value;
+                this["TfsDevOpsTeamProjectName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("skykick")]
+        public string TfsSkyKickAccountName {
+            get {
+                return ((string)(this["TfsSkyKickAccountName"]));
+            }
+            set {
+                this["TfsSkyKickAccountName"] = value;
             }
         }
     }

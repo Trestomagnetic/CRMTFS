@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CV.Common.Crypto</name>
+    </assembly>
+    <members>
+        <member name="T:CV.Common.Crypto.AESCryptoAgent">
+            <summary>
+            Convenience class wraps basic AES256 encryption/decryption and other methods
+            </summary>
+        </member>
+        <member name="T:CV.Common.Crypto.CertificateRestrictionLevel">
+            <summary>
+            Reflects proliferation of the corresponding certs
+            </summary>
+        </member>
+        <member name="T:CV.Common.Crypto.NinjectModule">
+            <summary>
+            <see cref="T:Ninject.Modules.NinjectModule"/> for 
+            <see cref="N:CV.Common.Crypto"/>
+            </summary>
+            <remarks>
+            Uses Convention binding to match default names, ie
+            Bind IFoo to Foo.  If you add a class that does not follow
+            this convention, it will need to be manually added.
+            </remarks>
+            <remarks>
+            Have questions about Dependency Injection or Ninject?  
+            Feel free to email philip.pittle@skykick.com
+            </remarks>
+        </member>
+        <member name="M:CV.Common.Crypto.IPeerToPeerCryptoService.EncryptAndSign(System.String,System.String,System.String,System.Text.Encoding)">
+            <summary>
+            Encrypts a message with an external party's public key from the 'thumbprintThem' cert 
+            and signs it with the private key of the cert specified in 'thumbprintUs'
+            Uses RSA/AES-256/CBC (with fixed IV)/PKCS1v2
+            One-time AES key use only (if we need to change this, then pass the IV through)
+            </summary>
+        </member>
+        <member name="M:CV.Common.Crypto.IPeerToPeerCryptoService.DecryptAndVerify(System.String,System.String,System.String,System.String,System.String,System.Text.Encoding)">
+            <summary>
+            Decrypts a message from an external party
+            Uses RSA/AES-256/CBC (with fixed IV)/PKCS1v2
+            One-time AES key use only (if we need to change this, then pass the IV through)
+            </summary>
+        </member>
+        <member name="T:CV.Common.Crypto.PublicKeyEncryptionOnion">
+            <summary>
+            Stackable/Serializable public key encryption layer. Used to encrypt values with a given public key
+            identified by AsymmetricThumbprint. Can then have additional public key layers added/removed as necessary.
+            </summary>
+        </member>
+        <member name="M:CV.Common.Crypto.PublicKeyEncryptionOnion.#ctor">
+            <summary>
+            Default ctor
+            </summary>
+        </member>
+        <member name="M:CV.Common.Crypto.PublicKeyEncryptionOnion.#ctor(CV.Common.Crypto.PublicKeyEncryptionOnion)">
+            <summary>
+            Cloning ctor
+            </summary>
+        </member>
+        <member name="M:CV.Common.Crypto.PublicKeyEncryptionOnion.#ctor(System.String)">
+            <summary>
+            Decoding from base64 converted bundle ctor
+            </summary>
+        </member>
+        <member name="M:CV.Common.Crypto.PublicKeyEncryptionOnion.#ctor(System.Byte[])">
+            <summary>
+            Decoding from raw onion byte encoding ctor
+            </summary>
+        </member>
+        <member name="M:CV.Common.Crypto.PublicKeyEncryptionOnion.#ctor(System.Byte[],System.String)">
+            <summary>
+            Root-level encryption of plain text ctor
+            </summary>
+        </member>
+        <member name="M:CV.Common.Crypto.PublicKeyEncryptionOnion.#ctor(CV.Common.Crypto.PublicKeyEncryptionOnion,System.String)">
+            <summary>
+            N-level encryption of existing onion ctor
+            </summary>
+        </member>
+        <member name="M:CV.Common.Crypto.PublicKeyEncryptionOnion.PeelOne">
+            <summary>
+            Return an onion with the top layer removed
+            </summary>
+        </member>
+        <member name="M:CV.Common.Crypto.PublicKeyEncryptionOnion.PeelAll">
+            <summary>
+            Peel the onion until we can return the original plain data. Remember that the calling environment must contain all necessary private keys.
+            </summary>
+        </member>
+        <member name="M:CV.Common.Crypto.PublicKeyEncryptionOnion.Clone">
+            <summary>
+            Allocate a new onion object with all the same current values.
+            </summary>
+        </member>
+        <member name="M:CV.Common.Crypto.PublicKeyEncryptionOnion.ByteArrayToString(System.Byte[])">
+            <summary>
+            Convert byte array to hex representation
+            </summary>
+        </member>
+        <member name="M:CV.Common.Crypto.PublicKeyEncryptionOnion.StringToByteArray(System.String)">
+            <summary>
+            Convert hex string to byte array
+            </summary>
+        </member>
+        <member name="M:CV.Common.Crypto.PublicKeyEncryptionOnion.ConcatenateByteArrays(System.Byte[][])">
+            <summary>
+            Take a variable number of byte arrays and put em all together into one
+            </summary>
+        </member>
+        <member name="T:CV.Common.Crypto.IRSACryptoAgent">
+            <summary>
+            Convenience class wraps basic encryption/decryption using RSA certs installed 
+            in the local machine stores.
+            </summary>
+        </member>
+    </members>
+</doc>

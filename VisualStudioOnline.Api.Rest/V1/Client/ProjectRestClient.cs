@@ -26,13 +26,16 @@ namespace VisualStudioOnline.Api.Rest.V1.Client
 
     public class ProjectRestClient : RestClientVersion1, IVsoProject
     {
+        private const string ACCOUNT_ROOT_URL = "https://{0}.visualstudio.com/{1}";
+        private const string DEFAULT_COLLECTION = "DefaultCollection";
+
         protected override string SubSystemName
         {
             get { return "projects"; }
         }
 
-        public ProjectRestClient(string url, NetworkCredential userCredential)
-            : base(url, new BasicAuthenticationFilter(userCredential))
+        public ProjectRestClient(string accountName, NetworkCredential userCredential)
+            : base(string.Format(ACCOUNT_ROOT_URL, accountName, DEFAULT_COLLECTION), new BasicAuthenticationFilter(userCredential))
         {
         }
 

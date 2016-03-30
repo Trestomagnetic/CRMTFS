@@ -1,0 +1,9 @@
+C:\CVProjects\SkyTfs\bin\Debug\SkyTfs.dll.config
+C:\CVProjects\SkyTfs\bin\Debug\SkyTfs.dll
+C:\CVProjects\SkyTfs\bin\Debug\SkyTfs.pdb
+C:\CVProjects\SkyTfs\bin\Debug\VisualStudioOnline.Api.Rest.dll
+C:\CVProjects\SkyTfs\bin\Debug\Newtonsoft.Json.dll
+C:\CVProjects\SkyTfs\bin\Debug\VisualStudioOnline.Api.Rest.pdb
+C:\CVProjects\SkyTfs\obj\Debug\SkyTfs.csprojResolveAssemblyReference.cache
+C:\CVProjects\SkyTfs\obj\Debug\SkyTfs.dll
+C:\CVProjects\SkyTfs\obj\Debug\SkyTfs.pdb

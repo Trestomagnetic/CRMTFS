@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SkyTfs.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TfsUri" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://SkyKick.visualstudio.com/DefaultCollection</Value>
+    </Setting>
+    <Setting Name="TfsSkyKickTeamProjectName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SkyKick 1</Value>
+    </Setting>
+    <Setting Name="TfsSwatUsername" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SWAT-TFS</Value>
+    </Setting>
+    <Setting Name="TfsSwatPasskey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">l7w2ez2lkjyca2ibnq3t3m7m2at5qjoyw7ijphrezlfe4z4ripbq</Value>
+    </Setting>
+    <Setting Name="TfsDevOpsTeamProjectName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DevOps 1</Value>
+    </Setting>
+    <Setting Name="TfsSkyKickAccountName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">skykick</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

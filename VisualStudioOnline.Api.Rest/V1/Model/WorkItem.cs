@@ -182,6 +182,8 @@ namespace VisualStudioOnline.Api.Rest.V1.Model
         [JsonProperty(PropertyName = "_links")]
         public WorkItemLink References;
 
+        public bool IsDirty { get { return this.FieldUpdates.Any(); } }
+
         public WorkItem()
         {
             Relations = new ObservableCollection<WorkItemRelation>();

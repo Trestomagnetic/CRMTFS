@@ -123,6 +123,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="TfsHyperlink.cs" />
+    <Compile Include="TfsTeam.cs" />
+    <Compile Include="TfsWorkItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

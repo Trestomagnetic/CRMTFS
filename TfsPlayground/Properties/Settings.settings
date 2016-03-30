@@ -2,20 +2,23 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TfsPlayground.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="PersonalAccessDescription" Type="System.String" Scope="User">
-      <Value Profile="(Default)">SomeTest</Value>
+    <Setting Name="TfsUri" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://SkyKick.visualstudio.com/DefaultCollection</Value>
     </Setting>
-    <Setting Name="PersonalAccessToken" Type="System.String" Scope="User">
-      <Value Profile="(Default)">scmga354je26yr4gpp4m4ip4dujkytlgngbkp2ji2ktgthjs3qra</Value>
+    <Setting Name="TfsSkyKickTeamProjectName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SkyKick 1</Value>
     </Setting>
-    <Setting Name="AccountName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">SkyKick</Value>
+    <Setting Name="TfsSwatUsername" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SWAT-TFS</Value>
     </Setting>
-    <Setting Name="DefaultCollection" Type="System.String" Scope="User">
-      <Value Profile="(Default)">DefaultCollection</Value>
+    <Setting Name="TfsSwatPasskey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">l7w2ez2lkjyca2ibnq3t3m7m2at5qjoyw7ijphrezlfe4z4ripbq</Value>
     </Setting>
-    <Setting Name="TeamProject_DevOps" Type="System.String" Scope="User">
+    <Setting Name="TfsDevOpsTeamProjectName" Type="System.String" Scope="User">
       <Value Profile="(Default)">DevOps 1</Value>
+    </Setting>
+    <Setting Name="TfsSkyKickAccountName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">skykick</Value>
     </Setting>
   </Settings>
 </SettingsFile>
